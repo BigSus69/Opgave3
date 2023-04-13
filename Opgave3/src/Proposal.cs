@@ -23,7 +23,17 @@ namespace Opgave3
 
         public bool IsPassed()
         {
-            return _votes.Count >= _requiredVotes;
+            int yesVotes = 0;
+
+            foreach (var vote in _votes)
+            {
+                if (vote.GetChoice() == true)
+                {
+                    yesVotes++;
+                }
+            }
+
+            return yesVotes >= _requiredVotes;
         }
     }
 }
